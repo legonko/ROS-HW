@@ -219,7 +219,7 @@ def publish_odom(self):
         rospy.loginfo(msg)
 ```
 - ### **publish_trajectory_markers()**
-Метод настраивает и публикует маркеры для отрисовки траектории робота в **RViz**.
+Метод настраивает и публикует маркеры для отрисовки траектории робота в топик **/trajectory_markers**.
 ```python
 def publish_trajectory_markers(self):
         marker = Marker()
@@ -248,7 +248,7 @@ def publish_trajectory_markers(self):
 ```bash
 cd ~/catkin_ws/src
 git clone https://github.com/ROBOTIS-GIT/turtlebot3
-git clone https://github.com/
+git clone https://github.com/legonko/ROS-HW
 ```
 Далее необходимо запустить ядро:
 ```bash
