@@ -272,7 +272,7 @@ export TURTLEBOT3_MODEL=waffle; roslaunch turtlebot3_teleop  turtlebot3_teleop_k
 ```bash
 rosrun rviz rviz
 ```
-В окне **RViz** необходимо добавить инструмент **Odometry** и привязать его к топику **/odom**. Далее нужно раскрыть меню **Global Options** и в поле **Fixed Frame** установить **odom**. 
+В окне **RViz** необходимо добавить инструмент **Odometry** и привязать его к топику **/odom**. Далее нужно раскрыть меню **Global Options** и в поле **Fixed Frame** установить **odom**. Для отображения траектории нужно добавить **Markers** и привязать их к топику **trajectory_markers**.
 
 ## **Авторы**
 *Суслова А.*  
