@@ -45,7 +45,7 @@ class RobotCommander:
         sub_name = "/cmd_vel"
         self.pub_enc = rospy.Publisher(pub1_name, Encoders, queue_size=10)
         self.pub_odom = rospy.Publisher(pub2_name, Odometry, queue_size=10)
-        self.pub_trajectory_markers = rospy.Publisher("trajectory_markers", Marker, queue_size=10)
+        self.pub_trajectory_markers = rospy.Publisher("/trajectory_markers", Marker, queue_size=10)
         self.sub = rospy.Subscriber(sub_name, Twist, self.handle_cmd_vel)
         self.pose = PoseWithCovariance()
         self.twist = TwistWithCovariance()
