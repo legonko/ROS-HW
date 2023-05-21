@@ -39,14 +39,11 @@ class MotorModelController:
 
 
 class RobotCommander:
-    def __init__(self):
-        pub1_name = "/enc"
-        pub2_name = "/odom"
-        sub_name = "/cmd_vel"
-        self.pub_enc = rospy.Publisher(pub1_name, Encoders, queue_size=10)
-        self.pub_odom = rospy.Publisher(pub2_name, Odometry, queue_size=10)
+    def __init__(self):      
+        self.pub_enc = rospy.Publisher("/enc", Encoders, queue_size=10)
+        self.pub_odom = rospy.Publisher("/odom", Odometry, queue_size=10)
         self.pub_trajectory_markers = rospy.Publisher("/trajectory_markers", Marker, queue_size=10)
-        self.sub = rospy.Subscriber(sub_name, Twist, self.handle_cmd_vel)
+        self.sub = rospy.Subscriber("/cmd_vel", Twist, self.handle_cmd_vel)
         self.pose = PoseWithCovariance()
         self.twist = TwistWithCovariance()
         self.left_motor = MotorModelController()
@@ -142,7 +139,7 @@ class RobotCommander:
 
 if __name__ == '__main__':
     rospy.init_node("Robot")
-    rate = rospy.Rate(10)  # 10hz
+    rate = rospy.Rate(30)  # 30hz
     com = RobotCommander()
     while not rospy.is_shutdown():
         com.publish_enc()
