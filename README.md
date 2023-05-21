@@ -2,7 +2,6 @@
 *Ubuntu 20.04*  
 *ROS noetic 1.16.0*
 ## **Описание модели**
-___
 В рамках [задания](https://github.com/McGorky/ros-hw) был создан пакет, включающий в себя узел для симуляции робота с дифференциальным приводом. Управление роботом производится с помощью нажатия клавиш WASDX с использованием пакета [turtlebot3_teleop](http://wiki.ros.org/turtlebot3_teleop):
 - W: увеличить скорость;
 - X: уменьшить скорость;
@@ -18,7 +17,7 @@ ___
 
 Визуализация движения робота производится в **RViz**. Модель робота выглядит следующим образом:
 
-![Дифференциальный привод](./diff.png)
+![Дифференциальный привод](./images/diff.png)
 ```
 ICC - мгновенный центр скоростей 
 Ω - угловая скорость вращения центра робота вокруг МЦС 
@@ -48,9 +47,8 @@ $\omega_{r} = \frac{2V+l\Omega}{2r}$
 
 
 ## **Описание ПО**
-___
 Структура пакета:
-![Структура пакета](./structure_soft.png)
+![Структура пакета](./images/structure_soft.png)
 - Файл **Encoders.msg** содержит  поле типа **Header** и два **uint32** поля.
 - В файл **CMakeLists.txt** добавлены:  
     - пакеты: `roscpp`, `rospy`, `std_msgs`, `project`, `geometry_msgs`, `visualization_msgs`;
@@ -60,7 +58,7 @@ ___
 - В файл **package.xml** добавлены зависимости: `roscpp`, `rospy`, `std_msgs`, `geometry_msgs`, `nav_msgs`, `message_generation`, `visualization_msgs`.
 
 Структура файла **robot.py** приведена ниже. 
-![Структура ПО](./structure_robot.png)
+![Структура ПО](./images/structure_robot.png)
 ### **main()**
 ```python
 if __name__ == '__main__':
@@ -242,11 +240,9 @@ def publish_trajectory_markers(self):
 ```
  
 ## **Результат моделирования**
-___
-![Результат моделирования](./result.gif)
+![Результат моделирования](./images/result.gif)
 
 ## **Инструкция по запуску**
-___
 Клонировать данный репозиторий, а также репозиторий с пакетом [turtlebot3_teleop](http://wiki.ros.org/turtlebot3_teleop) в `~/catkin_ws/src`:
 
 ```bash
@@ -279,6 +275,5 @@ rosrun rviz rviz
 В окне **RViz** необходимо добавить инструмент **Odometry** и привязать его к топику **/odom**. Далее нужно раскрыть меню **Global Options** и в поле **Fixed Frame** установить **odom**. 
 
 ## **Авторы**
-___
 *Суслова А.*  
 *Жиделев А.*
