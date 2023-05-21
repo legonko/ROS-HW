@@ -257,6 +257,8 @@ roscore
 После запуска открыть **новое** окно терминала и выполнить следующие команды:
 
 ```bash
+cd ~/catkin_ws/src/ROS-HW/projects/src/
+chmod +x robot.py
 cd ~/catkin_ws
 source ./devel/setup.bash
 catkin_make
