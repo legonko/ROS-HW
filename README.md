@@ -63,7 +63,7 @@ $\omega_{r} = \frac{2V+l\Omega}{2r}$
 ```python
 if __name__ == '__main__':
     rospy.init_node("Robot")
-    rate = rospy.Rate(10)  # 10hz
+    rate = rospy.Rate(30)  # 30hz
     com = RobotCommander()
     while not rospy.is_shutdown():
         com.publish_enc()
